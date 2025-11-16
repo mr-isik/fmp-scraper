@@ -206,66 +206,6 @@ Date,Open,High,Low,Close,Adjusted Close,Volume,...
 2024-01-02,184.35,186.95,183.89,185.64,185.64,52164400,...
 ```
 
----
-
-## 🏗️ Proje Yapısı
-
-```
-fmp-scraper/
-├── cmd/
-│   └── fmp-scraper/
-│       └── main.go              # Uygulama giriş noktası
-├── internal/
-│   ├── api/
-│   │   └── client.go            # FMP API istemcisi
-│   ├── cmd/
-│   │   └── root.go              # CLI komutları (Cobra)
-│   ├── config/
-│   │   └── config.go            # Konfigürasyon yönetimi
-│   ├── exporter/
-│   │   └── csv.go               # CSV export işlemleri
-│   └── models/
-│       └── stock.go             # Veri modelleri
-├── pkg/
-│   └── logger/
-│       └── logger.go            # Logging utility
-├── .env.example                 # Örnek environment dosyası
-├── .gitignore
-├── go.mod                       # Go modül dosyası
-├── go.sum                       # Bağımlılık checksums
-└── README.md                    # Bu dosya
-```
-
-### Mimari Kararlar (SOLID Prensipler)
-
-#### 1. Single Responsibility Principle (SRP)
-
-- Her paket tek bir sorumluluğa sahip
-- `api`: Sadece API iletişimi
-- `exporter`: Sadece CSV export
-- `config`: Sadece konfigürasyon
-
-#### 2. Open/Closed Principle (OCP)
-
-- Interface'ler kullanılarak genişletilebilir yapı
-- `Client`, `Exporter`, `Logger` interface'leri
-
-#### 3. Liskov Substitution Principle (LSP)
-
-- Interface implementasyonları değiştirilebilir
-
-#### 4. Interface Segregation Principle (ISP)
-
-- Küçük, odaklanmış interface'ler
-- `HTTPClient`, `Logger`, `Manager`
-
-#### 5. Dependency Inversion Principle (DIP)
-
-- Yüksek seviye modüller düşük seviyeye bağımlı değil
-- Dependency injection kullanımı
-
----
-
 ## 🛠️ Geliştirme
 
 ### Projeyi Çalıştırma (Development)
@@ -294,21 +234,6 @@ Küçük boyutlu binary oluşturmak için:
 go build -ldflags="-s -w" -o fmp-scraper.exe ./cmd/fmp-scraper
 ```
 
----
-
-## 🎯 Gelecek Geliştirmeler
-
-- [ ] Birim testleri ekleme
-- [ ] JSON ve Excel export desteği
-- [ ] Birden fazla sembol için toplu işlem
-- [ ] Progress bar ekleme
-- [ ] Rate limiting desteği
-- [ ] Veri validasyonu ve temizleme
-- [ ] Interactive mode
-- [ ] Web UI (opsiyonel)
-
----
-
 ## 🤝 Katkıda Bulunma
 
 Katkılarınızı memnuniyetle karşılarız!
@@ -332,27 +257,3 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 **Ömer Faruk Işık**
 
 - GitHub: [@mr-isik](https://github.com/mr-isik)
-
----
-
-## 🙏 Teşekkürler
-
-- [Financial Modeling Prep](https://financialmodelingprep.com/) - API sağlayıcısı
-- [Cobra](https://github.com/spf13/cobra) - CLI framework
-- [godotenv](https://github.com/joho/godotenv) - Environment yönetimi
-
----
-
-## ⚠️ Sorumluluk Reddi
-
-Bu araç sadece eğitim ve araştırma amaçlıdır. Finansal kararlar almadan önce profesyonel danışmanlık alın. Veri doğruluğu garanti edilmez.
-
----
-
-<div align="center">
-
-⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!
-
-**[⬆ Başa Dön](#fmp-scraper)**
-
-</div>
