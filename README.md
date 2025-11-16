@@ -102,12 +102,12 @@ fmp-scraper [flags]
 
 ### Flags (Parametreler)
 
-| Flag | Kısa | Açıklama | Zorunlu | Örnek |
-|------|------|----------|---------|-------|
-| `--symbol` | `-s` | Hisse senedi sembolü | ✅ Evet | `AAPL`, `TSLA`, `MSFT` |
-| `--from` | `-f` | Başlangıç tarihi (YYYY-MM-DD) | ✅ Evet | `2024-01-01` |
-| `--to` | `-t` | Bitiş tarihi (YYYY-MM-DD) | ✅ Evet | `2024-12-31` |
-| `--output` | `-o` | Çıktı dosya adı | ❌ Hayır | `my_data.csv` |
+| Flag       | Kısa | Açıklama                      | Zorunlu  | Örnek                  |
+| ---------- | ---- | ----------------------------- | -------- | ---------------------- |
+| `--symbol` | `-s` | Hisse senedi sembolü          | ✅ Evet  | `AAPL`, `TSLA`, `MSFT` |
+| `--from`   | `-f` | Başlangıç tarihi (YYYY-MM-DD) | ✅ Evet  | `2024-01-01`           |
+| `--to`     | `-t` | Bitiş tarihi (YYYY-MM-DD)     | ✅ Evet  | `2024-12-31`           |
+| `--output` | `-o` | Çıktı dosya adı               | ❌ Hayır | `my_data.csv`          |
 
 ### Çıktı Dosyası
 
@@ -131,6 +131,7 @@ Financial Modeling Prep API anahtarı almak için:
 4. `.env` dosyasına yapıştırın
 
 **Ücretsiz Plan Limitleri:**
+
 - 250 API çağrısı/gün
 - Temel finansal veriler
 - Geçmiş verilere erişim
@@ -182,21 +183,21 @@ foreach ($symbol in $symbols) {
 
 Oluşturulan CSV dosyası aşağıdaki sütunları içerir:
 
-| Sütun | Açıklama |
-|-------|----------|
-| `Date` | İşlem tarihi |
-| `Open` | Açılış fiyatı |
-| `High` | En yüksek fiyat |
-| `Low` | En düşük fiyat |
-| `Close` | Kapanış fiyatı |
-| `Adjusted Close` | Düzeltilmiş kapanış fiyatı |
-| `Volume` | İşlem hacmi |
-| `Unadjusted Volume` | Düzeltilmemiş hacim |
-| `Change` | Fiyat değişimi |
-| `Change Percent` | Yüzdesel değişim |
-| `VWAP` | Hacim ağırlıklı ortalama fiyat |
-| `Label` | Etiket bilgisi |
-| `Change Over Time` | Zaman içindeki değişim |
+| Sütun               | Açıklama                       |
+| ------------------- | ------------------------------ |
+| `Date`              | İşlem tarihi                   |
+| `Open`              | Açılış fiyatı                  |
+| `High`              | En yüksek fiyat                |
+| `Low`               | En düşük fiyat                 |
+| `Close`             | Kapanış fiyatı                 |
+| `Adjusted Close`    | Düzeltilmiş kapanış fiyatı     |
+| `Volume`            | İşlem hacmi                    |
+| `Unadjusted Volume` | Düzeltilmemiş hacim            |
+| `Change`            | Fiyat değişimi                 |
+| `Change Percent`    | Yüzdesel değişim               |
+| `VWAP`              | Hacim ağırlıklı ortalama fiyat |
+| `Label`             | Etiket bilgisi                 |
+| `Change Over Time`  | Zaman içindeki değişim         |
 
 **Örnek Satır:**
 
@@ -238,23 +239,28 @@ fmp-scraper/
 ### Mimari Kararlar (SOLID Prensipler)
 
 #### 1. Single Responsibility Principle (SRP)
+
 - Her paket tek bir sorumluluğa sahip
 - `api`: Sadece API iletişimi
 - `exporter`: Sadece CSV export
 - `config`: Sadece konfigürasyon
 
 #### 2. Open/Closed Principle (OCP)
+
 - Interface'ler kullanılarak genişletilebilir yapı
 - `Client`, `Exporter`, `Logger` interface'leri
 
 #### 3. Liskov Substitution Principle (LSP)
+
 - Interface implementasyonları değiştirilebilir
 
 #### 4. Interface Segregation Principle (ISP)
+
 - Küçük, odaklanmış interface'ler
 - `HTTPClient`, `Logger`, `Manager`
 
 #### 5. Dependency Inversion Principle (DIP)
+
 - Yüksek seviye modüller düşük seviyeye bağımlı değil
 - Dependency injection kullanımı
 

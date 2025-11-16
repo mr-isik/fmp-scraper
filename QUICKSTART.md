@@ -33,6 +33,7 @@ cp .env.example .env
 ```
 
 `.env` dosyasını düzenleyin:
+
 ```env
 FMP_API_KEY=your_actual_api_key_here
 ```
@@ -58,16 +59,19 @@ Excel, Google Sheets veya herhangi bir metin editörü ile CSV dosyasını açı
 ## 🎯 Daha Fazla Örnek
 
 ### Farklı hisse
+
 ```bash
 ./fmp-scraper.exe -s TSLA -f 2024-01-01 -t 2024-03-31
 ```
 
 ### Özel dosya adı
+
 ```bash
 ./fmp-scraper.exe -s MSFT -f 2023-01-01 -t 2023-12-31 -o microsoft_2023.csv
 ```
 
 ### Son 90 gün
+
 ```bash
 ./fmp-scraper.exe -s GOOGL -f 2024-08-01 -t 2024-11-01 -o google_q3_2024.csv
 ```
